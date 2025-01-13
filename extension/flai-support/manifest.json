@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "FlaAi Support",
+  "version": "1.0",
+  "description": "FlaAi destek uzantısı, seçilen metinlere yapay zeka desteği sağlar.",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "clipboardWrite",
+    "clipboardRead",
+    "tabs"
+  ],
+  "host_permissions": [
+    "http://localhost:3000/ask",
+    "https://*.flalingo.myfreshworks.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["style.css"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    },
+    "default_title": "FlaAi Support"
+  }
+}
