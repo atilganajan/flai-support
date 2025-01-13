@@ -2,11 +2,14 @@ const express = require('express');
 const { initQdrant } = require('./config/qdrant');
 const { answerQuestion } = require('./services/ragService');
 
+require('dotenv').config();
+
 const app = express();
 app.use(express.json());
 const cors = require('cors');
 
 app.use(cors());
+
 
 
 initQdrant().catch(console.error);
